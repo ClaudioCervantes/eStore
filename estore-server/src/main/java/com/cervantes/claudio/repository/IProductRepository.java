@@ -19,22 +19,7 @@ import com.cervantes.claudio.entities.Product;
 
 public interface IProductRepository extends JpaRepository<Product, Integer> {
 
-	@Query("SELECT e FROM Product e WHERE ( e.category.id = :idcategory OR -1 = :idcategory ) AND UPPER(e.name) LIKE :name ORDER BY e.name ASC")
-	public Page<Product> findByCategoryAndNameAlfabeticAsc(@Param("idcategory") Integer idcategory, @Param("name") String name, Pageable pageable);
-
-	@Query("SELECT e FROM Product e WHERE ( e.category.id = :idcategory OR -1 = :idcategory ) AND UPPER(e.name) LIKE :name ORDER BY e.name DESC")
-	public Page<Product> findByCategoryAndNameAlfabeticDesc(@Param("idcategory") Integer idcategory, @Param("name") String name, Pageable pageable);
-	
-	@Query("SELECT e FROM Product e WHERE ( e.category.id = :idcategory OR -1 = :idcategory ) AND UPPER(e.name) LIKE :name ORDER BY e.price DESC")
-	public Page<Product> findByCategoryAndNameMajorPrice(@Param("idcategory") Integer idcategory, @Param("name") String name, Pageable pageable);
-	
-	@Query("SELECT e FROM Product e WHERE ( e.category.id = :idcategory OR -1 = :idcategory ) AND UPPER(e.name) LIKE :name ORDER BY e.price ASC")
-	public Page<Product> findByCategoryAndNameMinorPrice(@Param("idcategory") Integer idcategory, @Param("name") String name, Pageable pageable);
-	
-	@Query("SELECT e FROM Product e WHERE ( e.category.id = :idcategory OR -1 = :idcategory ) AND UPPER(e.name) LIKE :name ORDER BY e.discount DESC")
-	public Page<Product> findByCategoryAndNameMajorDiscount(@Param("idcategory") Integer idcategory, @Param("name") String name, Pageable pageable);
-	
-	@Query("SELECT e FROM Product e WHERE ( e.category.id = :idcategory OR -1 = :idcategory ) AND UPPER(e.name) LIKE :name ORDER BY e.discount ASC")
-	public Page<Product> findByCategoryAndNameMinorDiscount(@Param("idcategory") Integer idcategory, @Param("name") String name, Pageable pageable);
+	@Query("SELECT e FROM Product e WHERE ( e.category.id = :idcategory OR -1 = :idcategory ) AND UPPER(e.name) LIKE :name")
+	public Page<Product> findByCategoryAndName(@Param("idcategory") Integer idcategory, @Param("name") String name, Pageable pageable);
 
 }

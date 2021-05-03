@@ -3,7 +3,10 @@ package com.cervantes.claudio.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import com.cervantes.claudio.entities.Product;
@@ -26,30 +29,37 @@ public class ProductService implements IProductService {
 
 	@Override
 	public Page<Product> findProductsByCategoryAndName(Integer idCategory, Integer typeSearch, String name, Pageable pageable) {
-
+		
+		Pageable pageableSort;
+		Sort sort = null;
+		
 		switch (typeSearch) {
 		case 1:
-			System.out.println("ENTRO A 1");
-			return iProductRepository.findByCategoryAndNameAlfabeticAsc(idCategory, "%" + name + "%", pageable);
+			sort = Sort.by(Direction.ASC, "name");
+			break;
 		case 2:
-			System.out.println("ENTRO A 2");
-			return iProductRepository.findByCategoryAndNameAlfabeticDesc(idCategory, "%" + name + "%", pageable);
+			sort = Sort.by(Direction.DESC, "name");
+			break;
 		case 3:
-			System.out.println("ENTRO A 3");
-			return iProductRepository.findByCategoryAndNameMajorPrice(idCategory, "%" + name + "%", pageable);
+			sort = Sort.by(Direction.DESC, "price");
+			break;
 		case 4:
-			System.out.println("ENTRO A 4");
-			return iProductRepository.findByCategoryAndNameMinorPrice(idCategory, "%" + name + "%", pageable);
+			sort = Sort.by(Direction.ASC, "price");
+			break;
 		case 5:
-			System.out.println("ENTRO A 5");
-			return iProductRepository.findByCategoryAndNameMajorDiscount(idCategory, "%" + name + "%", pageable);
+			sort = Sort.by(Direction.DESC, "discount");
+			break;
 		case 6:
-			System.out.println("ENTRO A 6");
-			return iProductRepository.findByCategoryAndNameMinorDiscount(idCategory, "%" + name + "%", pageable);
+			sort = Sort.by(Direction.ASC, "discount");
+			break;
 		default:
-			System.out.println("ENTRO A DEFAULT");
-			return iProductRepository.findByCategoryAndNameAlfabeticAsc(idCategory, "%" + name + "%", pageable);
+			sort = Sort.by(Direction.ASC, "name");
+			break;
 		}
+		
+		pageableSort = PageRequest.of(pageable.getPageNumber(), pageable.getPageSize(), sort);
+		
+		return iProductRepository.findByCategoryAndName(idCategory, "%" + name + "%", pageableSort);
 
 	}
 
