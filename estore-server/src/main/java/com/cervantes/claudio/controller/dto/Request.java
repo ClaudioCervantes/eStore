@@ -17,7 +17,7 @@ import lombok.Setter;
 public class Request {
 	
 	private int productOrder;
-	private int productCategory;
+	private Integer productCategory;
 	private String productName;
 
 }

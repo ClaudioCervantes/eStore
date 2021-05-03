@@ -1,0 +1,193 @@
+/*BODY*/
+
+body {
+    display: block;
+    width: 100%;
+}
+
+/*HEADER*/
+
+header {
+    background-color: #63937C;
+    padding: 1%;
+    width: 100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#nombre {
+    width: 15%;
+    float: left;
+}
+
+#imagenNombre {
+    width: 80%;
+    height: auto;
+    float: left;
+}
+
+#buscador {
+    padding-left: 1%;
+    padding-right: 1%;
+    width: 61%;
+    display:flex;
+    align-items: center;
+}
+
+#compras {
+    width: 20%;
+    float: right;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carrito {
+    display:flex;
+    justify-content: right;
+    align-items: center;
+}
+
+.carritoLink {
+    width: auto;
+    display:flex;
+    justify-content: right;
+    align-items: center;
+}
+
+.carritoLink a {
+    color: #FFD571;
+    font: bold 1em "Lucida Grande", Verdana, Geneva, Lucida, Arial, Helvetica, sans-serif;
+}
+
+.imagenCarrito {
+    width: 20%;
+    float: right;
+}
+
+/*.separador {
+    border-right: 1px solid #666;
+    padding-right: 10px;
+}*/
+
+/*SECTION*/
+
+section {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #56556e;
+    padding: 1% 5%;
+    flex-direction: column;
+    border-top: 1px solid #000;
+}
+
+.paginacion {
+    margin: 1% 0;
+    padding: 1% 1%;
+    width: 88%;
+    background-color: white;
+    border: 1px solid #000;
+}
+
+#productos {
+    padding: 0 2%;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+article {
+    margin: 1% 7.5%;
+    width: 13%;
+}
+
+article button {
+    width: 100%;
+}
+
+#imagenProducto {
+    width: 100%;
+}
+
+/*FOOTER*/
+
+footer {
+    background-color: #56556e;
+    color: white;
+}
+
+/*******/
+
+.dropdown {
+    position: static;
+    float: right;
+}
+
+.btn-secondary {
+    color: #000;
+    background-color: #C8CACC;
+}
+
+.pagination {
+    border: none;
+    background-color: transparent;
+}
+
+.divFilterOne {
+    float: right;
+    display:flex;
+    justify-content: center;
+    align-items: baseline;
+    position: static;
+}
+
+.lblFilterOne {
+    width: 50%;
+}
+
+#footerSection {
+    display: flex;
+    justify-content: flex-end;
+    align-items: baseline;
+}
+
+#lblCantidadRegistros {
+    width: fit-content;
+}
+
+#paginado {
+    width: fit-content;
+    background-color: #E7E7E7;
+}
+
+#paginado ul {
+    background-color: #E7E7E7;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    width: 100%;
+    display:flex;
+    justify-content: flex-end;
+    align-items: baseline;
+}
+
+#paginado li {
+    float: left;
+    padding: 0;
+    margin: 0;
+}
+
+#paginado li a, #paginado li a:link {
+    color: black;
+    text-decoration: none;
+    padding: .5em 1em;
+    display: block;
+    font: bold 1em "Lucida Grande", Verdana, Geneva, Lucida, Arial, Helvetica, sans-serif;
+}
+
+#paginado li a:hover {
+    background-color: #3c2946;
+    color: #ffd571;
+}

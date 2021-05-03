@@ -16,8 +16,6 @@ import com.cervantes.claudio.entities.Product;
 
 public interface IProductService {
 
-	public Page<Product> findProductsByCategory(int idCategory, int typeSearch, Pageable pageable);
-	
-	public Page<Product> findProductsByName(String name, Pageable pageable);
+	public Page<Product> findProductsByCategoryAndName(Integer idCategory, Integer typeSearch, String name, Pageable pageable);
 	
 }

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Expires" content="0">
+  <meta http-equiv="Last-Modified" content="0">
+  <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.7/dist/sweetalert2.all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/estore.css" />
+    <title>eStore</title>
+</head>
+
+<body>
+
+        <header>
+            <div id="nombre">
+                <img id="imagenNombre" src="../images/logo.png">
+            </div>
+            <div id="buscador">
+                <div class="input-group mb-2">
+                    <input class="form-control" type="text" id="inText" placeholder="Que producto busca" onkeypress="keyPress(event)">
+                    <div class="input-group-append">
+                        <button class="btn btn-secondary" onclick="pagination('')">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                            </svg>
+                              Buscar
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div id="compras">
+                <div class="carrito">
+                    <div class="carritoLink">
+                        <button type="button" class="btn btn-link">
+                            <a href="#">Mi Cuenta</a>
+                        </button>
+                    </div>
+                    <img class="imagenCarrito" src="../images/user.png">
+                </div>
+                <div class="carrito">
+                    <div class="carritoLink">
+                        <button id="botonCarrito" type="button" class="btn btn-link">
+                            <a href="#">Mi Carrito</a>
+                        </button>
+                    </div>
+                    <img class="imagenCarrito" src="../images/carrito.png">
+                </div>
+            </div>
+        </header>
+
+    <section>
+        <div class="paginacion">
+
+            <div class="form-group col-md-4 divFilterOne">
+                <label class="control-label lblFilterOne">Categorias: </label>
+                <select id="slctMenu" class='form-control' onchange="pagination('')">
+                    <!-- SE LLENA DESDE JS -->
+                </select>
+            </div>
+
+            <div class="form-group col-md-4 divFilterOne">
+                <label class="control-label lblFilterOne">Ordenar Por: </label>
+                <select id="slctOrdenamiento" class='form-control' onchange="pagination('')">
+                    <option value="1">A - Z</option>
+                    <option value="2">Z - A</option>
+                    <option value="3">Mayor Precio</option>
+                    <option value="4">Menor Precio</option>
+                    <option value="5">Mayor Descuento</option>
+                    <option value="6">Menor Descuento</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="paginacion">
+            <div id="productos">
+                <article onclick="addProducto()" onmouseover="addProductoBotonOver('btnAgregar1')" onmouseout="addProductoBotonOut('btnAgregar1')">
+                    <img id="imagenProducto" src="">
+                    <h4><b>PAPAS LAYS</b></h4>
+                    <h5><b>PRECIO: </b> S/ 12</h5>
+                    <h5><b>DESCUENTO: </b> 20</h5>
+                    <button id="btnAgregar1" class="btn btn-secondary" hidden>Agregar Producto</button>
+                </article>
+
+                <article>
+                    <img id="imagenProducto" src="../images/81TLFU5Yj6L._SY879_.jpg">
+                    <h4><b>PAPAS LAYS</b></h4>
+                    <h5><b>PRECIO: </b> S/ 12</h5>
+                    <h5><b>DESCUENTO: </b> 20</h5>
+                    <button class="btn btn-secondary">Agregar Producto</button>
+                </article>
+
+                <article>
+                    <img id="imagenProducto" src="../images/81TLFU5Yj6L._SY879_.jpg">
+                    <h4><b>PAPAS LAYS</b></h4>
+                    <h5><b>PRECIO: </b> S/ 12</h5>
+                    <h5><b>DESCUENTO: </b> 20</h5>
+                    <button class="btn btn-secondary">Agregar Producto</button>
+                </article>
+
+                <article onclick="addProducto()">
+                    <img id="imagenProducto" src="../images/81TLFU5Yj6L._SY879_.jpg">
+                    <h4><b>PAPAS LAYS</b></h4>
+                    <h5><b>PRECIO: </b> S/ 12</h5>
+                    <h5><b>DESCUENTO: </b> 20</h5>
+                    <button class="btn btn-secondary">Agregar Producto</button>
+                </article>
+
+                <article>
+                    <img id="imagenProducto" src="../images/81TLFU5Yj6L._SY879_.jpg">
+                    <h4><b>PAPAS LAYS</b></h4>
+                    <h5><b>PRECIO: </b> S/ 12</h5>
+                    <h5><b>DESCUENTO: </b> 20</h5>
+                    <button class="btn btn-secondary">Agregar Producto</button>
+                </article>
+
+                <article>
+                    <img id="imagenProducto" src="../images/81TLFU5Yj6L._SY879_.jpg">
+                    <h4><b>PAPAS LAYS</b></h4>
+                    <h5><b>PRECIO: </b> S/ 12</h5>
+                    <h5><b>DESCUENTO: </b> 20</h5>
+                    <button class="btn btn-secondary">Agregar Producto</button>
+                </article>
+
+                <article onclick="addProducto()">
+                    <img id="imagenProducto" src="../images/81TLFU5Yj6L._SY879_.jpg">
+                    <h4><b>PAPAS LAYS</b></h4>
+                    <h5><b>PRECIO: </b> S/ 12</h5>
+                    <h5><b>DESCUENTO: </b> 20</h5>
+                    <button class="btn btn-secondary">Agregar Producto</button>
+                </article>
+
+                <article>
+                    <img id="imagenProducto" src="../images/81TLFU5Yj6L._SY879_.jpg">
+                    <h4><b>PAPAS LAYS</b></h4>
+                    <h5><b>PRECIO: </b> S/ 12</h5>
+                    <h5><b>DESCUENTO: </b> 20</h5>
+                    <button class="btn btn-secondary">Agregar Producto</button>
+                </article>
+
+            </div>
+        </div>
+
+        <div class="paginacion">
+
+            <div id="footerSection">
+                <label id="lblCantidadRegistros" class="control-label">Cantidad de Registros: </label>
+                <div id="divCantRegistros" class="form-group col-md-1">
+                    <select id="slctCantidadRegistros" class='form-control' onchange="pagination('')">
+                        <option value="1">6</option>
+                        <option value="2">9</option>
+                        <option value="3">12</option>
+                    </select>
+                </div>
+
+                <div id="paginado">
+                    <ul>
+                        <li><button class="btn btn-secondary">1</button></li>
+                        <li><button class="btn btn-secondary">2</button></li>
+                        <li><button class="btn btn-secondary">3</button></li>
+                        <li><button class="btn btn-secondary">4</button></li>
+                        <li><button class="btn btn-secondary">5</button></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <script type="text/javascript" src="../js/estore.js"></script>
+
+</body>
+
+</html>

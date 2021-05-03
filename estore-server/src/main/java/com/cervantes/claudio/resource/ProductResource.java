@@ -46,11 +46,7 @@ public class ProductResource {
 		Page<Product> pageProduct;
 		StringBuilder path;
 		
-		if (request.getProductName() == null) {
-			pageProduct = iProductService.findProductsByCategory(request.getProductCategory(), request.getProductOrder(), pageable);
-		} else {
-			pageProduct = iProductService.findProductsByName(request.getProductName().toUpperCase(), pageable);
-		}
+		pageProduct = iProductService.findProductsByCategoryAndName(request.getProductCategory(), request.getProductOrder(), request.getProductName(), pageable);
 				
 		if (pageProduct.getContent().isEmpty()) {
 			log.info("NO SE ENCONTRARON PRODUCTOS PARA LA BUSQUEDA REALIZADA");
@@ -66,6 +62,9 @@ public class ProductResource {
 		for (int i = 0; i < pageProduct.getTotalPages(); i++) {
 			
 			path = new StringBuilder();
+			//
+			path.append(Constants.BY_PASS_CORS);
+			//
 			path.append(Constants.PATH_PART_1);
 			path.append(pageProduct.getSize());
 			path.append(Constants.PATH_PART_2);

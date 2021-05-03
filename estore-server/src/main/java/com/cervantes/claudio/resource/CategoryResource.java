@@ -48,8 +48,8 @@ public class CategoryResource {
 		}
 		
 		response = new Response<List<Category>>();
-		response.setErrorCode(ErrorsEnum.NO_DATA_CATEGORY.getErrorCode());
-		response.setErrorMessage(ErrorsEnum.NO_DATA_CATEGORY.getErrorMessage());
+		response.setErrorCode(ErrorsEnum.OK.getErrorCode());
+		response.setErrorMessage(ErrorsEnum.OK.getErrorMessage());
 		response.setData(listCategory);
 		
 		return new ResponseEntity<Response<List<Category>>>(response, HttpStatus.OK);

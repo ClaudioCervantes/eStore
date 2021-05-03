@@ -25,30 +25,32 @@ public class ProductService implements IProductService {
 	private IProductRepository iProductRepository;
 
 	@Override
-	public Page<Product> findProductsByCategory(int idCategory, int typeSearch, Pageable pageable) {
+	public Page<Product> findProductsByCategoryAndName(Integer idCategory, Integer typeSearch, String name, Pageable pageable) {
 
 		switch (typeSearch) {
 		case 1:
-			return iProductRepository.findByCategoryAlfabeticAsc(idCategory, pageable);
+			System.out.println("ENTRO A 1");
+			return iProductRepository.findByCategoryAndNameAlfabeticAsc(idCategory, "%" + name + "%", pageable);
 		case 2:
-			return iProductRepository.findByCategoryAlfabeticDesc(idCategory, pageable);
+			System.out.println("ENTRO A 2");
+			return iProductRepository.findByCategoryAndNameAlfabeticDesc(idCategory, "%" + name + "%", pageable);
 		case 3:
-			return iProductRepository.findByCategoryMajorPrice(idCategory, pageable);
+			System.out.println("ENTRO A 3");
+			return iProductRepository.findByCategoryAndNameMajorPrice(idCategory, "%" + name + "%", pageable);
 		case 4:
-			return iProductRepository.findByCategoryMinorPrice(idCategory, pageable);
+			System.out.println("ENTRO A 4");
+			return iProductRepository.findByCategoryAndNameMinorPrice(idCategory, "%" + name + "%", pageable);
 		case 5:
-			return iProductRepository.findByCategoryMajorDiscount(idCategory, pageable);
+			System.out.println("ENTRO A 5");
+			return iProductRepository.findByCategoryAndNameMajorDiscount(idCategory, "%" + name + "%", pageable);
 		case 6:
-			return iProductRepository.findByCategoryMinorDiscount(idCategory, pageable);
+			System.out.println("ENTRO A 6");
+			return iProductRepository.findByCategoryAndNameMinorDiscount(idCategory, "%" + name + "%", pageable);
 		default:
-			return iProductRepository.findByCategoryAlfabeticAsc(idCategory, pageable);
+			System.out.println("ENTRO A DEFAULT");
+			return iProductRepository.findByCategoryAndNameAlfabeticAsc(idCategory, "%" + name + "%", pageable);
 		}
 
-	}
-
-	@Override
-	public Page<Product> findProductsByName(String name, Pageable pageable) {
-		return iProductRepository.findByName("%" + name + "%", pageable);
 	}
 
 }
