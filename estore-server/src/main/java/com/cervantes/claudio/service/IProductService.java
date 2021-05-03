@@ -1,7 +1,10 @@
 
 package com.cervantes.claudio.service;
 
- 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
+import com.cervantes.claudio.entities.Product;
 
 /** 
 * 
@@ -13,4 +16,8 @@ package com.cervantes.claudio.service;
 
 public interface IProductService {
 
+	public Page<Product> findProductsByCategory(int idCategory, int typeSearch, Pageable pageable);
+	
+	public Page<Product> findProductsByName(String name, Pageable pageable);
+	
 }

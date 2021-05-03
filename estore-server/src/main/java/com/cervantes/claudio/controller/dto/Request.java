@@ -14,11 +14,9 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class RequestPaged {
+public class Request {
 	
-	private int pageNumber;
-	private int pageSize;
-	private int orderedBy;
+	private int productOrder;
 	private int productCategory;
 	private String productName;
 

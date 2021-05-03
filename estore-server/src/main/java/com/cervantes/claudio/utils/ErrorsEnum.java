@@ -12,7 +12,7 @@ import lombok.Getter;
 */
 
 @Getter
-public enum ErroresEnum {
+public enum ErrorsEnum {
 
 	OK(200, "OK"),
 	NO_DATA_CATEGORY(201, "No se encontraron datos de categoria"),
@@ -21,7 +21,7 @@ public enum ErroresEnum {
 	private final int errorCode;
 	private final String errorMessage;
 	
-	private ErroresEnum(int errorCode, String errorMessage) {
+	private ErrorsEnum(int errorCode, String errorMessage) {
 		this.errorCode = errorCode;
 		this.errorMessage = errorMessage;
 	}

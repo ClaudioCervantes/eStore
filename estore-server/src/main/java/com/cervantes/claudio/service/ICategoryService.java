@@ -1,7 +1,9 @@
 
 package com.cervantes.claudio.service;
 
- 
+import java.util.List;
+
+import com.cervantes.claudio.entities.Category;
 
 /** 
 * 
@@ -13,4 +15,6 @@ package com.cervantes.claudio.service;
 
 public interface ICategoryService {
 
+	public List<Category> findAll();
+	
 }
