@@ -62,9 +62,6 @@ public class ProductResource {
 		for (int i = 0; i < pageProduct.getTotalPages(); i++) {
 			
 			path = new StringBuilder();
-			//
-			path.append(Constants.BY_PASS_CORS);
-			//
 			path.append(Constants.PATH_PART_1);
 			path.append(pageProduct.getSize());
 			path.append(Constants.PATH_PART_2);

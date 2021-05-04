@@ -12,10 +12,8 @@ package com.cervantes.claudio.utils;
 */
 
 public class Constants {
-
-	public static final String BY_PASS_CORS = "http://192.168.1.12:8080/";
 	
-	public static final String PATH_PART_1 = "api/products/v1/pagination/?size=";
+	public static final String PATH_PART_1 = "/api/products/v1/pagination/?size=";
 	public static final String PATH_PART_2 = "&page=";
 	
 	public static final Integer[] CANT_PRODUCTS = {5, 10, 15};
