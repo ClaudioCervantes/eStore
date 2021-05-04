@@ -1,8 +1,5 @@
-# eStore
 
-Tienda de bebidas y snacks
-
-# INTRODUCCION:
+# eStore:
 
 La tienda virtual eStore es desarrollada con el fin de brindar al usuario mayores facilidades al momento de comprar sus productos, sean estos bebidas alcohólicas, energizantes o snacks. Brinda una interfaz web amigable y de aspecto sencillo para no llegar a ser pesada para la vista.
 
